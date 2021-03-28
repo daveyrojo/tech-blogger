@@ -14,10 +14,13 @@ router.post('/', async (req, res) => {
 
     req.session.save(() => {
       // TODO: SET USERID IN REQUEST SESSION TO ID RETURNED FROM DATABASE
+      req.session.id = newUser.id;
 
       // TODO: SET USERNAME IN REQUEST SESSION TO USERNAME RETURNED FROM DATABASE
+      req.session.username = newUser.username;
 
       // TODO: SET LOGGEDIN TO TRUE IN REQUEST SESSION
+      req.session.loggedin = true;
 
       res.json(newUser);
     });
