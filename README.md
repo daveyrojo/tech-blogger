@@ -1,10 +1,4 @@
-# tech-blogger
-
-<!-- 
-Files to work on:
-    Post model
-    Comment model
-    post-routes.js
-    comment-routes.js
-    user-routes.js    
- -->
+//cannot log out
+//login iffy
+//cannot post
+//cannot vist localhost:3001/api/<route end point>

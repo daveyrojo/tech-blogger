@@ -21,6 +21,14 @@ router.get('/post/:id', async (req, res) => {
   try {
     const postData = await Post.findByPk(
       // TODO: YOUR CODE HERE
+      req.params.id,
+      {
+        include: [
+          { model: Comment,
+          attributes: ["body"],
+        }
+        ]
+      }
     );
 
     if (postData) {

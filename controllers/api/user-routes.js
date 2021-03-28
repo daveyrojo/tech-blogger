@@ -6,15 +6,15 @@ router.post('/', async (req, res) => {
   try {
     const newUser = await User.create({
       // TODO: SET USERNAME TO USERNAME SENT IN REQUEST
-        username: req.params.id,
+        username: req.body.username,
 
       // TOD: SET PASSWORD TO PASSWORD SENT IN REQUEST
-        password: req.params.id,
+        password: req.body.password,
     });
 
     req.session.save(() => {
       // TODO: SET USERID IN REQUEST SESSION TO ID RETURNED FROM DATABASE
-      req.session.id = newUser.id;
+      req.session.userId = newUser.id;
 
       // TODO: SET USERNAME IN REQUEST SESSION TO USERNAME RETURNED FROM DATABASE
       req.session.username = newUser.username;
