@@ -34,11 +34,12 @@ router.post('/', async (req, res) => {
 router.post('/login', async (req, res) => {
    console.log("USER POST ROUTE: /login");
   try {
-    const user = await User.findOne({
-      where: {
-        username: req.body.username,
-      },
-    });
+   
+      const user = await User.findOne({
+        where: {
+          username: req.body.username,
+        },
+      });
 
     if (!user) {
       res.status(400).json({ message: 'No user account found!' });
@@ -51,13 +52,14 @@ router.post('/login', async (req, res) => {
       res.status(400).json({ message: 'No user account found!' });
       return;
     }
+    console.log('line 54');
 
     req.session.save(() => {
       // TODO: SET USERID IN REQUEST SESSION TO ID RETURNED FROM DATABASE
-      req.session.id = newUser.id,
+      req.session.id = user.id,
       
       // TODO: SET USERNAME IN REQUEST SESSION TO USERNAME RETURNED FROM DATABASE
-      req.session.username = newUser.username,
+      req.session.username = user.username,
 
       // TODO: SET loggedIn TO TRUE IN REQUEST SESSION
       req.session.loggedIn = true,
@@ -65,6 +67,7 @@ router.post('/login', async (req, res) => {
       res.json({ user, message: 'You are now logged in!' });
     });
   } catch (err) {
+    console.log(err);
     res.status(400).json({ message: 'No user account found!' });
   }
 });

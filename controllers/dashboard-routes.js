@@ -2,22 +2,25 @@ const router = require('express').Router();
 const { Post } = require('../models/');
 const withAuth = require('../utils/auth');
 
-router.get('/', withAuth, async (req, res) => {
+router.get('/', async (req, res) => {
   try {
+    console.log(req.session);
     const postData = await Post.findAll({
       where: {
         // TODO: SET USERID TO THE LOGGED-IN USER ID
-        userId: req.session.userId,
+        userId: req.session.id,
       },
     });
-
+    console.log({postData});
     const posts = postData.map((post) => post.get({ plain: true }));
+    console.log(posts);
 
     res.render('all-posts-admin', {
       layout: 'dashboard',
       posts,
     });
   } catch (err) {
+    console.log(err);
     res.redirect('login');
   }
 });
