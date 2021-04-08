@@ -4,12 +4,13 @@ const withAuth = require('../../utils/auth');
 
 router.post('/', withAuth, async (req, res) => {
   const body = req.body;
+  console.log("Post Post Route '/': " + body);
 
   try {
     const newPost = await Post.create({
       // TODO: POST BODY SENT IN REQUEST. HINT USING SPREAD
-        ...req.body,
-      // TODO: SET USERID TO LOGGEDIN USERID
+        ...body,
+      // TODO: SET USERID TO loggedIn USERID
       userId: req.loggedIn.userId,
 
     });
@@ -20,12 +21,13 @@ router.post('/', withAuth, async (req, res) => {
 });
 
 router.put('/:id', withAuth, async (req, res) => {
+  console.log("Post Put Route '/:id': " + req);
+  
   try {
     const [affectedRows] = await Post.update(req.body, {
       // TODO: SET ID TO ID PARAMETER INSIDE WHERE CLAUSE CONDITION FIELD
         where: {
           id: req.params.id,
-          userId: req.session.userId,
         }
     });
 
@@ -40,12 +42,12 @@ router.put('/:id', withAuth, async (req, res) => {
 });
 
 router.delete('/:id', withAuth, async (req, res) => {
+  console.log("Post Delete Route '/': " + req);
   try {
     const [affectedRows] = Post.destroy({
       // TODO: SET ID TO ID PARAMETER INSIDE WHERE CLAUSE CONDITION FIELD
       where: {
         id: req.params.id,
-        userId: req.session.userId,
       },
     });
 

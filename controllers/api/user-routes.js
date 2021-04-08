@@ -15,13 +15,13 @@ router.post('/', async (req, res) => {
 
     req.session.save(() => {
       // TODO: SET USERID IN REQUEST SESSION TO ID RETURNED FROM DATABASE
-      req.session.userId = newUser.id;
+      req.session.userId = newUser.id,
 
       // TODO: SET USERNAME IN REQUEST SESSION TO USERNAME RETURNED FROM DATABASE
-      req.session.username = newUser.username;
+      req.session.username = newUser.username,
 
-      // TODO: SET LOGGEDIN TO TRUE IN REQUEST SESSION
-      req.session.loggedin = true;
+      // TODO: SET loggedIn TO TRUE IN REQUEST SESSION
+      req.session.loggedIn = true,
 
       res.json(newUser);
     });
@@ -54,13 +54,13 @@ router.post('/login', async (req, res) => {
 
     req.session.save(() => {
       // TODO: SET USERID IN REQUEST SESSION TO ID RETURNED FROM DATABASE
-      req.session.id = newUser.id;
+      req.session.id = newUser.id,
       
       // TODO: SET USERNAME IN REQUEST SESSION TO USERNAME RETURNED FROM DATABASE
-      req.session.username = newUser.username;
+      req.session.username = newUser.username,
 
-      // TODO: SET LOGGEDIN TO TRUE IN REQUEST SESSION
-      req.session.loggedin = true;
+      // TODO: SET loggedIn TO TRUE IN REQUEST SESSION
+      req.session.loggedIn = true,
 
       res.json({ user, message: 'You are now logged in!' });
     });
