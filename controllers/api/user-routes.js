@@ -3,6 +3,7 @@ const { User } = require('../../models');
 
 //url: api/user
 router.post('/', async (req, res) => {
+   console.log("USER POST ROUTE: /");
   try {
     const newUser = await User.create({
       // TODO: SET USERNAME TO USERNAME SENT IN REQUEST
@@ -31,6 +32,7 @@ router.post('/', async (req, res) => {
 
 // URL: /api/user/login 
 router.post('/login', async (req, res) => {
+   console.log("USER POST ROUTE: /login");
   try {
     const user = await User.findOne({
       where: {
@@ -68,6 +70,7 @@ router.post('/login', async (req, res) => {
 });
 
 router.post('/logout', (req, res) => {
+  console.log("USER POST ROUTE: /logout");
   if (req.session.loggedIn) {
     req.session.destroy(() => {
       res.status(204).end();
