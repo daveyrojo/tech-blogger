@@ -11,6 +11,12 @@ My web app allows users to:
 * comment on other posts.
 * And see other comments
 
+## Links
+
+[GitHub Repo](https://github.com/daveyrojo/tech-blogger)
+[GitHub Deployed Page](https://daveyrojo.github.io/tech-blogger/)
+
+
 ## Screen Shots
 
 ![Home](./img/home.png)
