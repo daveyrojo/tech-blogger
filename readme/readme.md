@@ -14,7 +14,7 @@ My web app allows users to:
 ## Links
 
 [GitHub Repo](https://github.com/daveyrojo/tech-blogger)
-[GitHub Deployed Page](https://daveyrojo.github.io/tech-blogger/)
+[Heroku Deployed Page](https://techblogsite.herokuapp.com/)
 
 
 ## Screen Shots
