@@ -8,7 +8,7 @@ router.get('/', async (req, res) => {
     const postData = await Post.findAll({
       where: {
         // TODO: SET USERID TO THE LOGGED-IN USER ID
-        userId: req.session.id,
+        userId: req.session.userId,
       },
     });
     console.log({postData});

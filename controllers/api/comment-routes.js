@@ -10,7 +10,7 @@ router.post('/', withAuth, async (req, res) => {
       ...req.body,
 
       // TODO: SET USERID TO SESSION loggedIn USERID
-      userId: req.session.id
+      userId: req.session.userId
     });
     res.json(newComment);
   } catch (err) {

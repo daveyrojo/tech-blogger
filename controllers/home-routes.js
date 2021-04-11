@@ -23,11 +23,10 @@ router.get('/post/:id', async (req, res) => {
       // TODO: YOUR CODE HERE
       req.params.id,
       {
-        include: [
-          { model: Comment,
-          attributes: ["body"],
-        }
-        ]
+        include: [Comment]
+      },
+      {
+        include: [User],
       }
     );
 
